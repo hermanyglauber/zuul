@@ -422,6 +422,7 @@ public class DefaultClientChannelManager implements ClientChannelManager {
                     connEstablishTimer, connsInPool, connsInUse);
         });
 
+        pool.setServerAddr(serverAddr);
         return pool.acquire(eventLoop, passport, selectedHostAddr);
     }
 

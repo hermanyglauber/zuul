@@ -58,7 +58,7 @@ public class PerServerConnectionPool implements IConnectionPool
     private final Server server;
     private final ServerStats stats;
     private final InstanceInfo instanceInfo;
-    private final SocketAddress serverAddr;
+    private SocketAddress serverAddr;
     private final NettyClientConnectionFactory connectionFactory;
     private final PooledConnectionFactory pooledConnectionFactory;
     private final ConnectionPoolConfig config;
@@ -133,6 +133,8 @@ public class PerServerConnectionPool implements IConnectionPool
     {
         return niwsClientConfig;
     }
+
+    public void setServerAddr(SocketAddress serverAddr) { this.serverAddr = serverAddr; }
 
     @Override
     public boolean isAvailable()
